@@ -7,9 +7,11 @@ class TestPoker(unittest.TestCase):
 
     def test_White_Win(self):
         assert play("Black: 2H 3D 5S 9C KD  White: 2C 3H 4S 8C AH") == "White wins"
+        assert play("Black: 2H 3D 5S 9C KD  White: 2C AS AH AC AD") == "White wins"
 
     def test_Tie(self):
         assert play("Black: 2H 3D 5S 9C KD  White: 2D 3H 5C 9S KH") == "Tie"
+        assert play("Black: 2H 3H 4H 5H 6H  White: 2C 3C 4C 5C 6C") == "Tie"
 
 def parseInput(myinput):
     hands = {}
