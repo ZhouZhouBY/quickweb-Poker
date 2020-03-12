@@ -57,7 +57,6 @@ def isSeq(vals):
                 return False
     return True
 
-
 def compareHands(hands):
     rankings = {}
     for player in hands:
@@ -71,7 +70,6 @@ def compareHands(hands):
     for key in sorted(rankings.keys(), reverse=True):
         results.append(rankings[key])
     return results
-
 
 def getHands(name, hand):
     handset = {
@@ -100,7 +98,6 @@ def getHands(name, hand):
         if value == 14:  # ace
             handset["vals"].append(1)
 
-        # Check for flush and straights
         if len(handset[card[-1]]) == 5:
             handset["Flush"] = cardsort(cards)
         if len(handset["vals"]) == 5 and isSeq(handset["vals"]):
@@ -111,7 +108,6 @@ def getHands(name, hand):
                 handset["Straight"] = cardsort(cards)
                 break
 
-        # High card
         if "High Card" not in handset:
             handset["High Card"] = [card]
         elif value > getValue(handset["High Card"][-1]):
@@ -148,7 +144,6 @@ def getHands(name, hand):
                 "hand": handset[h]
             }
 
-
 def play(inputs):
     inputs = inputs.split('\n')
     print(inputs)
@@ -165,7 +160,6 @@ def play(inputs):
     else:
         print("Tie")
         return ("Tie")
-
 
 if __name__ == '__main__':
     unittest.main()
